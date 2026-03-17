@@ -4,6 +4,7 @@ pipeline {
     }
     options {
         timeout(time: 10, unit: 'SECONDS') //if pipeline build took more than this time, it will be aborted
+        disableConcurrentBuilds() // to prevent multiple builds of the same pipeline running at the same time
     }
     stages {
         stage('Build') {
