@@ -3,12 +3,13 @@ pipeline {
         label 'AGENT-1'
     }
     options {
-        timeout(time: 10, unit: 'SECONDS') # if pipeline build took more than this time, it will be aborted
+        timeout(time: 10, unit: 'SECONDS') //if pipeline build took more than this time, it will be aborted
     }
     stages {
         stage('Build') {
             steps {
                 sh 'echo "This is Build"'
+                sh 'sleep 10' // to test the timeout option, we can increase the sleep time to more than 10 seconds
             }
         }
         stage('Test') {
