@@ -31,7 +31,10 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                branch 'production' // this stage will only run when the branch is production
+                // branch 'production' // this stage will only run when the branch is production
+                expression {
+                    env.GIT_BRANCH == "origin/main" // this stage will only run when the branch is main
+                }
             }
             steps {
                 sh 'echo "This is Deploy"'
