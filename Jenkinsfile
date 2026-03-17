@@ -47,7 +47,7 @@ pipeline {
     }
     post { 
         always { 
-            echo "This section will always execute regardless of the build result"
+            echo "This section will always execute regardless of the build result "
             deleteDir() // to clean the workspace after the build
         }
         success { 
