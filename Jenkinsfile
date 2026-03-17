@@ -30,6 +30,9 @@ pipeline {
             }
         }
         stage('Deploy') {
+            when {
+                branch 'production' // this stage will only run when the branch is production
+            }
             steps {
                 sh 'echo "This is Deploy"'
                 //error 'pipeline failed' //to check the post section, failure block
